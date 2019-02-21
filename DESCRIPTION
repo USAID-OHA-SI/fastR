@@ -1,12 +1,16 @@
 Package: fastR
-Title: What the Package Does (One Line, Title Case)
+Title: Import COP19 FAST Tool Budgets
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Aaron",
+           family = "Chafetz",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "achafetz@usaid.gov")
+Description: Imports PEPFAR COP19 data from the FAST Tool. Creates an output csv file.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.1.1
+Imports: 
+    magrittr,
+    readxl

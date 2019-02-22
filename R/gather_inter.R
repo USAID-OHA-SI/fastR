@@ -6,7 +6,7 @@
 #' @importFrom magrittr %>%
 
 
-gather_budget <- function(df){
+gather_inter <- function(df){
 
   #gather budget column
     df <- df %>%

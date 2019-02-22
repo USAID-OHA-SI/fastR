@@ -4,10 +4,12 @@
 \alias{run_fast}
 \title{Run the COP19 FAST Importer}
 \usage{
-run_fast(filepath)
+run_fast(filepath, ou = NULL)
 }
 \arguments{
 \item{filepath}{full file path for the COP19 FAST}
+
+\item{ou}{specify the operatingunit}
 }
 \description{
 Run the COP19 FAST Importer
@@ -17,5 +19,5 @@ Run the COP19 FAST Importer
 #FAST file path
   path <- "../Downloads/FAST Malawi Consolidated Zero Draft 02082019.xlsx"
 #read in FAST
-  df_dp <- tame_dp(path) }
+  df_dp <- tame_dp(path, "Malawi") }
 }

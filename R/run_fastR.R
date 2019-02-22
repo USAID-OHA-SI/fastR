@@ -11,9 +11,9 @@
 #' #FAST file path
 #'   path <- "../Downloads/FAST Malawi Consolidated Zero Draft 02082019.xlsx"
 #' #read in FAST
-#'   df_dp <- tame_dp(path, "Malawi") }
+#'   df_dp <- run_fastR(path, "Malawi") }
 
-run_fast <- function(filepath, ou = NULL){
+run_fastR <- function(filepath, ou = NULL){
 
   #read in FAST
   df <- import_fast(path,

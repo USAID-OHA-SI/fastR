@@ -29,7 +29,7 @@ run_fastR <- function(filepath, sheetname = NULL, ou = NULL){
   }
 
   if(sheetname == "3 Initiative-E"){
-    df <- path %>%
+    df <- filepath %>%
       import_fast("3 Initiative-E") %>%
       limit_init() %>%
       sep_cols() %>%

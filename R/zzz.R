@@ -8,6 +8,7 @@
   utils::globalVariables ("path")
   utils::globalVariables ("program")
   utils::globalVariables ("programarea")
+  utils::globalVariables ("operatingunit")
 
   invisible ()
 }

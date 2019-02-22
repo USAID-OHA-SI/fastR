@@ -10,7 +10,8 @@ gather_budget <- function(df){
 
   #gather budget column
     df <- df %>%
-      tidyr::gather(cop, amt, dplyr::starts_with("cop"), na.rm = TRUE)
+      tidyr::gather(cop, amt, dplyr::starts_with("cop"), na.rm = TRUE) %>%
+      dplyr::mutate(amt = as.double(amt))
 
   #clean up the descriptor columns
     df <- df %>%

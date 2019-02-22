@@ -5,10 +5,17 @@
   utils::globalVariables ("amt_type")
   utils::globalVariables ("beneficiary")
   utils::globalVariables ("cop")
-  utils::globalVariables ("path")
   utils::globalVariables ("program")
   utils::globalVariables ("programarea")
   utils::globalVariables ("operatingunit")
+  utils::globalVariables ("budget_code")
+  utils::globalVariables ("initiative1")
+  utils::globalVariables ("initiative2")
+  utils::globalVariables ("budget")
+  utils::globalVariables ("budget_source_total")
+  utils::globalVariables ("init_headers")
+  utils::globalVariables ("fundingagency")
+  utils::globalVariables ("intervention_total_drop")
 
   invisible ()
 }

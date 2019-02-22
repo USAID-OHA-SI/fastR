@@ -6,7 +6,7 @@
 #'
 #' @export
 
-import_fast <- function(filepath, sheetname, skiprows){
+import_fast <- function(filepath, sheetname, skiprows = 2){
 
   #error in reading in with missing/repeated col names so supress
   suppressMessages(

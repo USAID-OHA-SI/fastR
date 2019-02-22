@@ -4,7 +4,7 @@
 \alias{import_fast}
 \title{Import COP19 FAST Tool}
 \usage{
-import_fast(filepath, sheetname, skiprows)
+import_fast(filepath, sheetname, skiprows = 2)
 }
 \arguments{
 \item{filepath}{full file path for the COP19 FAST}

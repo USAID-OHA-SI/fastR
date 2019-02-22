@@ -15,12 +15,9 @@
 
 run_fastR <- function(filepath, ou = NULL){
 
-  #read in FAST
-  df <- import_fast(path,
-                    sheetname = "2 Intervention-E",
-                    skiprows = 2)
-  #munge
-  df <- df %>%
+  #read in FAST & munge
+  df <- filepath %>%
+    import_fast(sheetname = "2 Intervention-E") %>%
     limit_fast() %>%
     sep_cols() %>%
     gather_budget()

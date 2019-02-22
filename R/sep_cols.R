@@ -17,5 +17,7 @@ sep_cols <- function(df){
   df <- df %>%
     tidyr::separate(beneficiary, c("beneficiary", "subbeneficiary"), sep = ": ")
 
+  return(df)
+
 }
 

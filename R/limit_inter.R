@@ -1,4 +1,4 @@
-#' Reduce to relevant rows and columns
+#' Reduce to relevant rows and columns in Intervention Tab
 #'
 #' @param df FAST data frame to narrow down
 #'
@@ -6,7 +6,7 @@
 #' @importFrom magrittr %>%
 
 
-limit_fast <- function(df){
+limit_inter <- function(df){
   #limit to just first 15 columns (R is having difficulty with missing col names at end)
   df <- df[1:15]
 

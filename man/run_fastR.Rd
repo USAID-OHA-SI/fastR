@@ -4,14 +4,12 @@
 \alias{run_fastR}
 \title{Run the COP19 FAST Importer}
 \usage{
-run_fastR(filepath, sheetname = NULL, ou = NULL)
+run_fastR(filepath, sheetname = NULL)
 }
 \arguments{
 \item{filepath}{full file path for the COP19 FAST}
 
 \item{sheetname}{name of sheet to import}
-
-\item{ou}{specify the operatingunit}
 }
 \description{
 Run the COP19 FAST Importer
@@ -21,5 +19,5 @@ Run the COP19 FAST Importer
 #FAST file path
   path <- "../Downloads/FAST Malawi Consolidated Zero Draft 02082019.xlsx"
 #read in FAST
-  df_dp <- run_fastR(path, "2 Intervention-E", "Malawi") }
+  df_dp <- run_fastR(path, "2 Intervention-E") }
 }

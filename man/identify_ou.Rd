@@ -4,12 +4,12 @@
 \alias{identify_ou}
 \title{Add Operating Unit into FAST Data Frame}
 \usage{
-identify_ou(df, ou)
+identify_ou(df, filepath)
 }
 \arguments{
 \item{df}{FAST data frame}
 
-\item{ou}{operatingunit}
+\item{filepath}{full file path for the COP19 FAST}
 }
 \description{
 Add Operating Unit into FAST Data Frame

@@ -32,7 +32,7 @@ The main function of `fastR` is to bring import a COP19 FAST Tool into R and mak
    path <- "../Downloads/FAST Malawi Consolidated Zero Draft 02082019.xlsx"
   
 #read in FAST
- df_fast <- run_fastR(path, "2 Intervention-E", "Malawi")
+   df_fast <- run_fastR(path, "2 Intervention-E")
 ```
 
 You can use one of the `map()` functions from `purrr` package to read in multiple Data Packs and combine.
@@ -44,13 +44,9 @@ You can use one of the `map()` functions from `purrr` package to read in multipl
 #identify all the FAST files
   files <- list.files("../Downloads/FAST_Tools", full.names = TRUE)
 
-#identify OUs
-   ou_lst <- c("Malawi", "Mozambique")
-
 #read in all FAST files and combine into one data frame
   df_all <- map_dfr(.x = files,
-                    .y = ou_lst,
-                    .f = ~ run_fastR(.x, "2 Intervention-E", .y))
+                    .f = ~ run_fastR(.x, "2 Intervention-E"))
 ```
 
 ---

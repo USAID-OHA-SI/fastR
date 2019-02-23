@@ -28,6 +28,7 @@ The import works for the following tabs in the FAST:
 
 - 2 Intervention-E
 - 3 Initiative-E
+- 4 Cross-Cutting-E
 - 5 Commodities-E
 
 ``` r

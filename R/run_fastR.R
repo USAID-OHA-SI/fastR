@@ -34,6 +34,12 @@ run_fastR <- function(filepath, sheetname = NULL){
       gather_init(filepath)
   }
 
+  if(sheetname == "4 Cross-Cutting-E"){
+    df <- df %>%
+      limit_cross(filepath) %>%
+      gather_cross(filepath)
+  }
+
   if(sheetname == "5 Commodities-E"){
     df <- df %>%
       limit_comm()

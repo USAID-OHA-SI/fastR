@@ -21,22 +21,20 @@ run_fastR <- function(filepath, sheetname = NULL){
   df <- import_fast(filepath, sheetname)
 
   if(sheetname == "2 Intervention-E"){
-    #read in FAST & munge
     df <- df %>%
       limit_inter() %>%
-      sep_cols() %>%
       gather_inter()
   }
 
   if(sheetname == "3 Initiative-E"){
     df <- df %>%
       limit_init() %>%
-      sep_cols() %>%
       gather_init()
   }
 
-  #add OU
-    df <- identify_ou(df, filepath)
+  df <- df %>%
+    identify_ou(filepath) %>%
+    sep_cols()
 
   return(df)
 

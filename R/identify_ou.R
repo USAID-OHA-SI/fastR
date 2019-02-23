@@ -12,9 +12,8 @@ identify_ou <- function(df, filepath){
   #pull OU name from PLL sheet & store
   #ref cell changed with SGAC review to G4
   #if not, check in E4
-    ou <- extract_ou(filepath, "G4")
-    if(length(ou) == 0)
-    ou <- extract_ou(filepath, "E4")
+    cell_loc <- ifelse(is_oldformat(filepath), "E4", "G4")
+    ou <- extract_ou(filepath, cell_loc)
 
   #add OU name & reorder to first column
     df <- df %>%

@@ -11,11 +11,21 @@
   utils::globalVariables ("budget_code")
   utils::globalVariables ("initiative1")
   utils::globalVariables ("initiative2")
+  utils::globalVariables ("initiative3")
   utils::globalVariables ("budget")
   utils::globalVariables ("budget_source_total")
   utils::globalVariables ("init_headers")
   utils::globalVariables ("fundingagency")
   utils::globalVariables ("intervention_total_drop")
+  utils::globalVariables ("dataquality")
+  utils::globalVariables ("listpricereference")
+  utils::globalVariables ("procurementmanagement")
+  utils::globalVariables ("totalitem")
+  utils::globalVariables ("totalitem_budget")
+  utils::globalVariables ("unitprice")
+
+
+  utils::globalVariables (".")
 
   invisible ()
 }

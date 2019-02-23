@@ -4,10 +4,12 @@
 \alias{gather_init}
 \title{Reshape budget columns long for Initiatives tab}
 \usage{
-gather_init(df)
+gather_init(df, filepath)
 }
 \arguments{
 \item{df}{FAST data frame to gather}
+
+\item{filepath}{full file path for the COP19 FAST}
 }
 \description{
 Reshape budget columns long for Initiatives tab

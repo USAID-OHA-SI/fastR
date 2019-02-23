@@ -24,6 +24,12 @@ The main function of `fastR` is to bring import a COP19 FAST Tool into R and mak
 - Separates out a Service Delivery and Non-Service Delivery column
 - Separates out a sub beneficiary column from beneficiary
 
+The import works for the following tabs in the FAST:
+
+- 2 Intervention-E
+- 3 Initiative-E
+- 5 Commodities-E
+
 ``` r
 #load package
   library(fastR)

@@ -4,10 +4,12 @@
 \alias{limit_init}
 \title{Reduce to relevant rows and columns in Initiatives Tab}
 \usage{
-limit_init(df)
+limit_init(df, filepath)
 }
 \arguments{
 \item{df}{FAST data frame to narrow down}
+
+\item{filepath}{full file path for the COP19 FAST}
 }
 \description{
 Reduce to relevant rows and columns in Initiatives Tab

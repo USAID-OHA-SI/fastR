@@ -18,7 +18,9 @@ run_fastR <- function(filepath, sheetname = NULL){
   if(is.null(sheetname))
     stop("Enter sheet name")
 
-  df <- import_fast(filepath, sheetname)
+  r <- ifelse(sheetname == "5 Commodities-E", 1, 2)
+
+  df <- import_fast(filepath, sheetname, r)
 
   if(sheetname == "2 Intervention-E"){
     df <- df %>%
@@ -28,8 +30,13 @@ run_fastR <- function(filepath, sheetname = NULL){
 
   if(sheetname == "3 Initiative-E"){
     df <- df %>%
-      limit_init() %>%
-      gather_init()
+      limit_init(filepath) %>%
+      gather_init(filepath)
+  }
+
+  if(sheetname == "5 Commodities-E"){
+    df <- df %>%
+      limit_comm()
   }
 
   df <- df %>%

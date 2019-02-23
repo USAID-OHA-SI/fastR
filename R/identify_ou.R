@@ -10,10 +10,12 @@
 identify_ou <- function(df, filepath){
 
   #pull OU name from PLL sheet & store
-    ou <- readxl::read_excel(filepath,
-                             sheet = "1 PLL",
-                             range = "G4") %>%
-      names()
+  #ref cell changed with SGAC review to G4
+  #if not, check in E4
+    ou <- extract_ou(filepath, "G4")
+
+    if(length(ou) == 0)
+    ou <- extract_ou(filepath, "E4")
 
   #add OU name & reorder to first column
     df <- df %>%

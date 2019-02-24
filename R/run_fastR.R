@@ -45,6 +45,12 @@ run_fastR <- function(filepath, sheetname = NULL){
       limit_comm()
   }
 
+  if(sheetname == "6 CODB-P"){
+    df <- df %>%
+      limit_codb() %>%
+      gather_codb()
+  }
+
   df <- df %>%
     identify_ou(filepath) %>%
     sep_cols()

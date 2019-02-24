@@ -11,7 +11,8 @@ gather_inter <- function(df){
   #gather budget column
     df <- df %>%
       tidyr::gather(cop, amt, dplyr::starts_with("cop"), na.rm = TRUE) %>%
-      dplyr::mutate(amt = as.double(amt))
+      dplyr::mutate(amt = as.double(amt)) %>%
+      dplyr::filter(amt > 0)
 
   #clean up the descriptor columns
     df <- df %>%

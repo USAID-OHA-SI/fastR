@@ -11,7 +11,8 @@ sep_cols <- function(df){
   if(var_exists(df, "programarea")) {
     df <- df %>%
       dplyr::select(-dplyr::matches("program$")) %>%
-      dplyr::mutate(programarea = stringr::str_replace(programarea, "y-b", "y.b")) %>%
+      dplyr::mutate(programarea = stringr::str_replace(programarea, "y-b", "y.b"),
+                    programarea = ifelse(programarea == "Program management", "PM: Program management", programarea)) %>%
       tidyr::separate(programarea, c("program", "programarea", "servicedelivery"),
                       sep = ": |-", fill = "right") %>%
       dplyr::mutate(programarea = stringr::str_replace(programarea, "y.b", "y-b"),

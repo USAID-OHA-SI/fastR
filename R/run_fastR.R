@@ -11,7 +11,7 @@
 #' #FAST file path
 #'   path <- "../Downloads/FAST Malawi Consolidated Zero Draft 02082019.xlsx"
 #' #read in FAST
-#'   df_dp <- run_fastR(path, "2 Intervention-E") }
+#'   df_fast <- run_fastR(path, "2 Intervention-E") }
 
 run_fastR <- function(filepath, sheetname = NULL){
 

@@ -20,6 +20,9 @@ limit_comm <- function(df){
       dplyr::rename_at(dplyr::vars(procurementmanagement:dataquality), ~ paste0("unitprice_",.)) %>%
       dplyr::rename(unitprice_base = unitprice)
 
+  #rename mechanismid
+    df <- dplyr::rename(df, mechanismid = mechid)
+
   #limit to where there is a budget
     df <- df %>%
       dplyr::filter(totalitem_budget!="0",

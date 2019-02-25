@@ -14,6 +14,9 @@ gather_inter <- function(df){
       dplyr::mutate(amt = as.double(amt)) %>%
       dplyr::filter(amt > 0)
 
+  #rename mechanismid
+    df <- dplyr::rename(df, mechanismid = mechid)
+
   #clean up the descriptor columns
     df <- df %>%
       tidyr::separate(cop, c("cop", "amt_type"), sep = "_") %>%

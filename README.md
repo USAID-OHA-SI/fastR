@@ -24,12 +24,18 @@ The main function of `fastR` is to bring import a COP19 FAST Tool into R and mak
 - Separates out a Service Delivery and Non-Service Delivery column
 - Separates out a sub beneficiary column from beneficiary
 
-The import works for the following tabs in the FAST:
+The import (`run_fastR()`)works for the following tabs in the FAST:
 
 - 2 Intervention-E
 - 3 Initiative-E
 - 4 Cross-Cutting-E
 - 5 Commodities-E
+- 6 CODB-P
+
+In addition to importing each tab separately, you can also combine the following tabs using `combo_fastR()`.
+
+- 2 Intervention-E [removes COP19 lines which have more detial and are pull 3 Initiative-E]
+- 3 Initiative-E
 - 6 CODB-P
 
 ``` r
@@ -41,6 +47,9 @@ The import works for the following tabs in the FAST:
   
 #read in FAST
    df_fast <- run_fastR(path, "2 Intervention-E")
+   
+#read combined input
+   df_combo <- combo_fastR(path)
 ```
 
 You can use one of the `map()` functions from `purrr` package to read in multiple Data Packs and combine.
@@ -55,6 +64,10 @@ You can use one of the `map()` functions from `purrr` package to read in multipl
 #read in all FAST files and combine into one data frame
   df_all <- map_dfr(.x = files,
                     .f = ~ run_fastR(.x, "2 Intervention-E"))
+                    
+#read in combined sheets from all FAST files
+  df_all_combo <- map_dfr(.x = files,
+                          .f = ~ combo_fastR(.x))
 ```
 
 ---

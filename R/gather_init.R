@@ -29,25 +29,20 @@ gather_init <- function(df, filepath){
     dplyr::select(-dplyr::starts_with("initiative")) %>%
     dplyr::mutate(budget_code = stringr::str_remove(budget_code, "bilat_|init2_|init3_"))
 
-
-  sources <- c("appliedpipeline", "new_gap", "new_ghp_usaid", "new_ghp_state")
-
+  #breakout program areas
+  # df <- df %>%
+  #   dplyr::mutate(prog_prev = dplyr::case_when(stringr::str_detect(budget_code, "prev") ~ "X"),
+  #                 prog_ct   = dplyr::case_when(stringr::str_detect(budget_code, "ct")   ~ "X"),
+  #                 prog_se   = dplyr::case_when(stringr::str_detect(budget_code, "se")   ~ "X"),
+  #                 prog_asp  = dplyr::case_when(stringr::str_detect(budget_code, "asp")  ~ "X"),
+  #                 prog_hts  = dplyr::case_when(stringr::str_detect(budget_code, "hts")  ~ "X"))
+  #clean budget code
   df <- df %>%
-    dplyr::mutate(budget_source_total =
-                    dplyr::case_when(budget_code %in% sources ~ amt),
-                  amt = ifelse(budget_code %in% sources, NA, amt)) %>%
-    dplyr::rename(budget = amt)
-
-  df <- df %>%
-    dplyr::mutate(prog_prev = dplyr::case_when(stringr::str_detect(budget_code, "prev") ~ "X"),
-                  prog_ct   = dplyr::case_when(stringr::str_detect(budget_code, "ct")   ~ "X"),
-                  prog_se   = dplyr::case_when(stringr::str_detect(budget_code, "se")   ~ "X"),
-                  prog_asp  = dplyr::case_when(stringr::str_detect(budget_code, "asp")  ~ "X"),
-                  prog_hts  = dplyr::case_when(stringr::str_detect(budget_code, "hts")  ~ "X"),
-                  budget_code = stringr::str_remove(budget_code, "\\..*$") %>% toupper(.))
+    dplyr::mutate(budget_code = stringr::str_remove(budget_code, "\\..*$") %>% toupper(.),
+                  budget_code = ifelse(budget_code == "APPLIEDPIPELINE", "Applied Pipeline", budget_code))
 
   #reorder $ to back
-  df <- dplyr::select(df, -budget, -budget_source_total, dplyr::everything())
+  df <- dplyr::select(df, -amt, dplyr::everything())
 
   return(df)
 }

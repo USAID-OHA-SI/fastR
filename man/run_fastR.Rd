@@ -19,5 +19,5 @@ Run the COP19 FAST Importer
 #FAST file path
   path <- "../Downloads/FAST Malawi Consolidated Zero Draft 02082019.xlsx"
 #read in FAST
-  df_dp <- run_fastR(path, "2 Intervention-E") }
+  df_fast <- run_fastR(path, "2 Intervention-E") }
 }

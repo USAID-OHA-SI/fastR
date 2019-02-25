@@ -10,8 +10,10 @@ sep_cols <- function(df){
   #create Service delivery variable & clean up program area
   if(var_exists(df, "programarea")) {
     df <- df %>%
+      dplyr::select(-dplyr::matches("program$")) %>%
       dplyr::mutate(programarea = stringr::str_replace(programarea, "y-b", "y.b")) %>%
-      tidyr::separate(programarea, c("programarea", "servicedelivery"), sep = "-", fill = "right") %>%
+      tidyr::separate(programarea, c("program", "programarea", "servicedelivery"),
+                      sep = ": |-", fill = "right") %>%
       dplyr::mutate(programarea = stringr::str_replace(programarea, "y.b", "y-b"),
                     programarea = stringr::str_remove(programarea, "^.*: "))
 

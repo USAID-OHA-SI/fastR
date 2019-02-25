@@ -25,15 +25,16 @@ gather_codb <- function(df){
     dplyr::select(-dplyr::starts_with("initiative")) %>%
     dplyr::mutate(budget_code = stringr::str_remove(budget_code, "bilat_|init2_|init3_"))
 
+  #add amt_type for combining
+  df <- dplyr::mutate(df, amt_type = "CODB")
 
-  sources <- c("appliedpipeline", "new_gap", "new_ghp_usaid", "new_ghp_state")
-
+  #clean up budget code
   df <- df %>%
-    dplyr::mutate(codb_source_total =
-                    dplyr::case_when(budget_code %in% sources ~ amt),
-                  amt = ifelse(budget_code %in% sources, NA, amt),
-                  budget_code = toupper(budget_code)) %>%
-    dplyr::rename(codb = amt)
+    dplyr::mutate(budget_code = toupper(budget_code),
+                  budget_code = ifelse(budget_code == "APPLIEDPIPELINE", "Applied Pipeline", budget_code))
+
+  #reorder $ to back
+  df <- dplyr::select(df, -amt, dplyr::everything())
 
   return(df)
 }

@@ -16,7 +16,8 @@ sep_cols <- function(df){
       tidyr::separate(programarea, c("program", "programarea", "servicedelivery"),
                       sep = ": |-", fill = "right") %>%
       dplyr::mutate(programarea = stringr::str_replace(programarea, "y.b", "y-b"),
-                    programarea = stringr::str_remove(programarea, "^.*: "))
+                    programarea = stringr::str_remove(programarea, "^.*: "),
+                    servicedelivery = ifelse(programarea == "ASP", "ASP", servicedelivery))
 
   }
 

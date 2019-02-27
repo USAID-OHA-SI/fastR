@@ -37,7 +37,10 @@ combo_fastR <- function(filepath){
 
   #add COP year to CODB
   df_codb_adj <- df_codb %>%
-    dplyr::mutate(cop = "COP19")
+    dplyr::mutate(cop = "COP19",
+                  program = "CODB",
+                  programarea = "CODB",
+                  servicedelivery = "CODB")
 
   #combine CODB to others
   df_combo <- df_combo %>%

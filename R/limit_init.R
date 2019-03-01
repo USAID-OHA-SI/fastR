@@ -13,6 +13,9 @@ limit_init <- function(df, filepath){
   if(is_oldformat(filepath))
     init_headers <- init_headers[!init_headers %in%
                                    c(stringr::str_match(init_headers, "initiative3|init3_.*"))]
+  #regional needs country included
+  if(is_regional(df))
+    init_headers <- append(init_headers, "country", 3)
 
   colnames(df) <- init_headers
 

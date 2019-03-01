@@ -13,6 +13,9 @@ limit_cross <- function(df, filepath){
   if(is_oldformat(filepath))
     cross_headers <- cross_headers[!cross_headers %in%
                                    c(stringr::str_match(cross_headers, "initiative3|init3_.*"))]
+  #regional needs country included
+  if(is_regional(df))
+    cross_headers <- append(cross_headers, "country", 3)
 
   colnames(df) <- cross_headers
 

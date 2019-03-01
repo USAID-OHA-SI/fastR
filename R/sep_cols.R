@@ -12,7 +12,9 @@ sep_cols <- function(df){
     df <- df %>%
       dplyr::select(-dplyr::matches("program$")) %>%
       dplyr::mutate(programarea = stringr::str_replace(programarea, "y-b", "y.b"),
-                    programarea = ifelse(programarea == "Program management", "PM: Program management", programarea)) %>%
+                    programarea = dplyr::case_when(programarea == "Program management" ~ "PM: Program management",
+                                                   programarea == "Non-Targeted Pop: Not disaggregated" ~ "ND: Not Disaggregated",
+                                                   TRUE ~ programarea)) %>%
       tidyr::separate(programarea, c("program", "programarea", "servicedelivery"),
                       sep = ": |-", fill = "right") %>%
       dplyr::mutate(programarea = stringr::str_replace(programarea, "y.b", "y-b"),

@@ -17,7 +17,7 @@ sep_cols <- function(df){
                       sep = ": |-", fill = "right") %>%
       dplyr::mutate(programarea = stringr::str_replace(programarea, "y.b", "y-b"),
                     programarea = stringr::str_remove(programarea, "^.*: "),
-                    servicedelivery = ifelse(program == "ASP", "ASP", servicedelivery))
+                    servicedelivery = ifelse(is.na(servicedelivery),  program, servicedelivery))
 
   }
 

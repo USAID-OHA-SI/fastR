@@ -15,8 +15,17 @@ identify_ou <- function(df, filepath){
     cell_loc <- ifelse(is_oldformat(filepath), "E4", "G4")
     ou <- extract_ou(filepath, cell_loc)
 
-  #add OU name & reorder to first column
+  #add OU name
     df <- df %>%
-      dplyr::mutate(operatingunit = ou) %>%
-      dplyr::select(operatingunit, dplyr::everything())
+      dplyr::mutate(operatingunit = ou)
+
+  #add country column if it does not exist
+    if(!is_regional(df))
+      df <- dplyr::mutate(country = ou)
+
+  #reorder w/ OU and country first
+   df <- df %>%
+      dplyr::select(operatingunit, country, dplyr::everything())
+
+   return(df)
 }

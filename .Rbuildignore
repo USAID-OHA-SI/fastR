@@ -3,3 +3,5 @@
 ^fastR\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
+^tools$
+^out$

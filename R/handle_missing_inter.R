@@ -12,7 +12,7 @@ handle_missing_inter <- function(df){
       dplyr::group_by(mechanismid, cop) %>%
       dplyr::filter(dplyr::n() == 1) %>%
       dplyr::ungroup() %>%
-      #specify these rows as not classified
+  #specify these rows as not classified
       dplyr::mutate(program = "ND",
                     programarea = "ND: Not Disaggregated",
                     beneficiary = "Not Disaggregated: Not Disaggregated")

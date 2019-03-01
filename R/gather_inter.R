@@ -23,5 +23,8 @@ gather_inter <- function(df){
       dplyr::mutate(cop = toupper(cop),
                     amt_type = stringr::str_to_sentence(amt_type))
 
+  #remove TOTAL rows excpet where interventions are missing
+    df <- handle_missing_inter(df)
+
   return(df)
 }

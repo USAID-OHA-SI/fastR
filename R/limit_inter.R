@@ -7,8 +7,13 @@
 
 
 limit_inter <- function(df){
-  #limit to just first 15 columns (R is having difficulty with missing col names at end)
-  df <- df[1:15]
+
+  #limit to just first 15/16 columns (R is having difficulty with missing col names at end)
+   if(!var_exists(df, "country")) {
+     df <- df[1:15]
+   } else {
+     df <- df[1:16]
+   }
 
   #remove rows without day data
   df <- df %>%

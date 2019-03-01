@@ -9,10 +9,10 @@
 limit_inter <- function(df){
 
   #limit to just first 15/16 columns (R is having difficulty with missing col names at end)
-   if(!var_exists(df, "country")) {
-     df <- df[1:15]
-   } else {
+   if(is_regional(df)) {
      df <- df[1:16]
+   } else {
+     df <- df[1:15]
    }
 
   #remove rows without day data

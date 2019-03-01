@@ -16,16 +16,14 @@ identify_ou <- function(df, filepath){
     ou <- extract_ou(filepath, cell_loc)
 
   #add OU name
-    df <- df %>%
-      dplyr::mutate(operatingunit = ou)
+    df <- dplyr::mutate(df, operatingunit = ou)
 
   #add country column if it does not exist
     if(!is_regional(df))
-      df <- dplyr::mutate(country = ou)
+      df <- dplyr::mutate(df, country = ou)
 
   #reorder w/ OU and country first
-   df <- df %>%
-      dplyr::select(operatingunit, country, dplyr::everything())
+   df <-  dplyr::select(df, operatingunit, country, dplyr::everything())
 
    return(df)
 }

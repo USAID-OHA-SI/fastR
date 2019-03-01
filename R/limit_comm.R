@@ -7,8 +7,12 @@
 
 limit_comm <- function(df){
 
-  #limit to just first 15 columns (R is having difficulty with missing col names at end)
-    df <- df[1:23]
+  #limit to just first 23/24 columns (R is having difficulty with missing col names at end)
+    if(is_regional(df)){
+      df <- df[1:24]
+    } else {
+      df <- df[1:23]
+    }
 
   #rename to fix ending letters (for excel calc)
     df <- df %>%

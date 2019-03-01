@@ -19,6 +19,7 @@ sep_cols <- function(df){
                       sep = ": |-", fill = "right") %>%
       dplyr::mutate(programarea = stringr::str_replace(programarea, "y.b", "y-b"),
                     programarea = stringr::str_remove(programarea, "^.*: "),
+                    programarea = ifelse(programarea == "Laboratory systems strengthening", "Laboratory Systems Stregthening", programarea),
                     servicedelivery = ifelse(is.na(servicedelivery),  program, servicedelivery)) %>%
       dplyr::mutate_at(dplyr::vars(programarea, servicedelivery), ~ stringr::str_squish(.))
 

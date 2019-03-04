@@ -8,11 +8,8 @@
 limit_comm <- function(df){
 
   #limit to just first 23/24 columns (R is having difficulty with missing col names at end)
-    if(is_regional(df)){
-      df <- df[1:24]
-    } else {
-      df <- df[1:23]
-    }
+    last_col <- match("totalitem_budget_ah", colnames(df))
+    df[1:last_col]
 
   #rename to fix ending letters (for excel calc)
     df <- df %>%

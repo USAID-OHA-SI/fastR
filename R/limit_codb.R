@@ -12,7 +12,7 @@ limit_codb <- function(df){
 
   #filter out missing and aggregated rows & drop any without an codb total
   df <- df %>%
-    dplyr::filter(!stringr::str_detect(costtype, "COP|Cycle|TOTAL"),
+    dplyr::filter(!stringr::str_detect(costtype, "COP|Cycle|TOTAL|HHS"),
                   total_codb_drop > 0)
 
   #drop no essential columns

@@ -29,6 +29,12 @@ sep_cols <- function(df){
   if(var_exists(df, "beneficiary"))
     df <- tidyr::separate(df, beneficiary, c("beneficiary", "subbeneficiary"), sep = ": ")
 
+  #clean up 0's to NAs
+  if(var_exists(df, "orgtype"))
+    df <- dplyr::mutate(df, orgtype = ifelse(orgtype == 0, NA, orgtype))
+  if(var_exists(df, "partnertype"))
+    df <- dplyr::mutate(df, partnertype = ifelse(partnertype == 0, NA, partnertype))
+
 
   return(df)
 

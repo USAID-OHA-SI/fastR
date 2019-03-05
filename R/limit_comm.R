@@ -9,7 +9,7 @@ limit_comm <- function(df){
 
   #limit to just first 23/24 columns (R is having difficulty with missing col names at end)
     last_col <- match("totalitem_budget_ah", colnames(df))
-    df[1:last_col]
+    df <- df[1:last_col]
 
   #rename to fix ending letters (for excel calc)
     df <- df %>%

@@ -1,6 +1,6 @@
 Package: fastR
 Title: Import COP19 FAST Tool Budgets
-Version: 3.2.4
+Version: 3.3.0
 Authors@R: 
     person(given = "Aaron",
            family = "Chafetz",

@@ -1,5 +1,8 @@
 .onLoad <- function (libname, pkgname)
 {
+
+  packageStartupMessage("\nHi! Type selfservice() when you are ready to begin.\n")
+
   # make data set names global to avoid CHECK notes
   utils::globalVariables ("amt")
   utils::globalVariables ("amt_type")

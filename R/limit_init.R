@@ -17,6 +17,10 @@ limit_init <- function(df, filepath){
   if(is_regional(df))
     init_headers <- append(init_headers, "country", 3)
 
+  #fix for extra column in West Central Africa
+  if("0" %in% names(df))
+    init_headers <- c(init_headers, "extra_drop")
+
   colnames(df) <- init_headers
 
   #filter out missing and aggregated rows & drop any withou an intervention total

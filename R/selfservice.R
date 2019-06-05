@@ -28,7 +28,7 @@ selfservice <- function(){
                        file.path(output_path,filename),
                        na = "")
 
-      print("Saved to:", output_path)
+      #print("Saved to:", output_path)
     } else {
       return(c_fast)
     }

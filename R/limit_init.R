@@ -18,7 +18,7 @@ limit_init <- function(df, filepath){
     init_headers <- append(init_headers, "country", 3)
 
   #fix for extra column in West Central Africa
-  if("0" %in% names(df))
+  if("0" %in% names(df) && is_regional(df))
     init_headers <- c(init_headers, "extra_drop")
 
   colnames(df) <- init_headers

@@ -10,12 +10,10 @@ limit_codb <- function(df){
   #fix column names (since dups)
   colnames(df) <- codb_headers
 
-  #filter out missing and aggregated rows & drop any without an codb total
-  df <- df %>%
-    dplyr::filter(!stringr::str_detect(costtype, "COP|Cycle|TOTAL|HHS"),
-                  total_codb_drop > 0)
+  #filter out missing blank and non-planning initiatives
+  df <- dplyr::filter(df, keep_amt_drop == 1)
 
-  #drop no essential columns
+  #drop non essential columns
   df <- df %>%
     dplyr::select(-dplyr::ends_with("_drop"))
 

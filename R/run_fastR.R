@@ -18,7 +18,9 @@ run_fastR <- function(filepath, sheetname = NULL){
   if(is.null(sheetname))
     stop("Enter sheet name")
 
-  r <- ifelse(sheetname == "5 Commodities-E", 1, 2)
+  r <- dplyr::case_when(sheetname == "5 Commodities-E" ~ 1,
+                        sheetname == "6 CODB-P"        ~ 106,
+                        TRUE                           ~ 2)
 
   df <- import_fast(filepath, sheetname, r)
 

@@ -11,7 +11,10 @@ limit_codb <- function(df){
   colnames(df) <- codb_headers
 
   #filter out missing blank and non-planning initiatives
-  df <- dplyr::filter(df, keep_amt_drop == 1)
+  #df <- dplyr::filter(df, keep_amt_drop == 1)
+
+  #filter out missing blank only
+  df <- dplyr::filter_at(df, dplyr::vars(amt, appliedpipeline), dplyr::any_vars(!is.na(.)))
 
   #drop non essential columns
   df <- df %>%

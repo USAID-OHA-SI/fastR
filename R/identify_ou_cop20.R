@@ -7,13 +7,13 @@
 #' @importFrom magrittr %>%
 
 
-identify_ou <- function(df, filepath){
+identify_ou_cop20 <- function(df, filepath){
 
   #pull OU name from PLL sheet & store
   #ref cell changed with SGAC review to G4
   #if not, check in E4
     cell_loc <- "A2"
-    ou <- extract_ou(filepath, cell_loc)
+    ou <- extract_ou_cop20(filepath, cell_loc)
 
   #add OU name
     df <- dplyr::mutate(df, operatingunit = ou)

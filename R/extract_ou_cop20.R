@@ -6,7 +6,7 @@
 #' @export
 #' @importFrom magrittr %>%
 
-extract_ou <- function(filepath, cell){
+extract_ou_cop20 <- function(filepath, cell){
 
   ou <- readxl::read_excel(filepath,
                      sheet = "Mechs List-R",

@@ -22,7 +22,7 @@ run_fastR_cop20 <- function(filepath, sheetname = NULL){
                         sheetname == "6 CODB-P"        ~ 106,
                         TRUE                           ~ 7)
 
-  df <- import_fast_cop20(filepath, sheetname, r)
+  df <- import_fast(filepath, sheetname, r)
 
   if(sheetname == "2 Intervention-E"){
     df <- df %>%

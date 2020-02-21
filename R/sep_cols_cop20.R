@@ -15,7 +15,10 @@ sep_cols_cop20 <- function(df){
       tidyr::separate(programarea, c("program", "programarea", "servicedelivery"),
                       sep = ": |-", fill = "right") %>%
       dplyr::mutate(programarea = stringr::str_replace(programarea, "y.b", "y-b")) %>%
-      dplyr::mutate_at(dplyr::vars(programarea, servicedelivery), ~ stringr::str_squish(.))
+      dplyr::mutate_at(dplyr::vars(programarea, servicedelivery), ~ stringr::str_squish(.)) %>%
+      dplyr::mutate(servicedelivery = dplyr::case_when(program == "ASP" ~ "ASP",
+                                                       program == "PM" ~ "PM",
+                                                       TRUE ~ servicedelivery))
 
   }
 

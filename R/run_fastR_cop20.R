@@ -18,8 +18,9 @@ run_fastR_cop20 <- function(filepath, sheetname = NULL){
   if(is.null(sheetname))
     stop("Enter sheet name")
 
-  r <- dplyr::case_when(sheetname == "5 Commodities-E" ~ 1,
-                        sheetname == "6 CODB-P"        ~ 106,
+  r <- dplyr::case_when(sheetname == "3 Initiative-E" ~ 1,
+                        sheetname == "6 Commodities-E" ~ 2,
+                        sheetname == "5 CODB-E"        ~ 2,
                         TRUE                           ~ 7)
 
   df <- import_fast(filepath, sheetname, r)
@@ -42,12 +43,12 @@ run_fastR_cop20 <- function(filepath, sheetname = NULL){
       gather_cross(filepath)
   }
 
-  if(sheetname == "5 Commodities-E"){
+  if(sheetname == "6 Commodities-E"){
     df <- df %>%
       limit_comm()
   }
 
-  if(sheetname == "6 CODB-P"){
+  if(sheetname == "5 CODB-E"){
     df <- df %>%
       limit_codb() %>%
       gather_codb()
